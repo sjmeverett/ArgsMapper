@@ -35,6 +35,9 @@ public class CommandLineParameters {
 
 
     public String getOrderedParameter(int index) {
+        if (index >= orderedParameters.size())
+            throw new ParameterException(String.format("No value supplied for argument %d.", index));
+        
         return orderedParameters.get(index);
     }
 

@@ -24,6 +24,14 @@ public class ParameterFieldFillerTest {
     }
 
 
+    @Test(expected = ParameterException.class)
+    public void orderedParamNotPresentTest() {
+        ParameterFieldFiller filler = new ParameterFieldFiller(TestParameters.class, new HashMap<Class<?>, StringConverter>());
+        CommandLineParameters params = new CommandLineParameters(new String[] {"-v", "--option", "value"});
+        TestParameters parameters = (TestParameters)filler.fill(params);
+    }
+
+
     @Test
     public void delegateTest() {
         ParameterFieldFiller filler = new ParameterFieldFiller(DelegatingParameters.class, new HashMap<Class<?>, StringConverter>());
