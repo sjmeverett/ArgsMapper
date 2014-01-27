@@ -3,10 +3,7 @@ package uk.co.stewartml.argsmapper;
 import uk.co.stewartml.argsmapper.annotations.Command;
 import uk.co.stewartml.argsmapper.annotations.Param;
 import uk.co.stewartml.argsmapper.annotations.ParamsObject;
-import uk.co.stewartml.argsmapper.stringconverters.BooleanStringConverter;
-import uk.co.stewartml.argsmapper.stringconverters.FileStringConverter;
-import uk.co.stewartml.argsmapper.stringconverters.IntegerStringConverter;
-import uk.co.stewartml.argsmapper.stringconverters.StringConverter;
+import uk.co.stewartml.argsmapper.stringconverters.*;
 
 import java.io.File;
 import java.lang.reflect.Field;
@@ -26,6 +23,7 @@ public class CommandLineProgram {
         converters = new HashMap<Class<?>, StringConverter>();
 
         converters.put(Integer.class, new IntegerStringConverter());
+        converters.put(Double.class, new DoubleStringConverter());
         converters.put(Boolean.class, new BooleanStringConverter());
         converters.put(File.class, new FileStringConverter());
     }

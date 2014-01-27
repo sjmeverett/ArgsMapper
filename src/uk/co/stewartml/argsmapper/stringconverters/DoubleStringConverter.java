@@ -3,11 +3,11 @@ package uk.co.stewartml.argsmapper.stringconverters;
 /**
  * @author stewart
  */
-public class BooleanStringConverter implements StringConverter {
+public class DoubleStringConverter implements StringConverter {
     @Override
     public Object convert(String value) {
         if (value != null)
-            return Boolean.parseBoolean(value);
+            return Double.parseDouble(value);
         else
             return null;
     }
